@@ -11,6 +11,17 @@
     links.forEach(function(a,i){a.classList.toggle('active',i===idx)});
   }
   window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  var mb=document.querySelector('.menu-btn'), lk=document.querySelector('.links');
+  if(mb&&lk){
+    mb.addEventListener('click',function(){
+      var open=lk.classList.toggle('open');
+      mb.setAttribute('aria-expanded',open?'true':'false');
+    });
+    lk.addEventListener('click',function(e){
+      if(e.target.tagName==='A'){lk.classList.remove('open');mb.setAttribute('aria-expanded','false');}
+    });
+  }
   var filters=document.querySelectorAll('.filter'), cards=document.querySelectorAll('#grid .card');
   [].forEach.call(filters,function(b){
     b.addEventListener('click',function(){
