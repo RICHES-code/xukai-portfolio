@@ -51,9 +51,9 @@ ul{list-style:none}
 .band-quote{font-size:clamp(20px,2.6vw,32px);font-weight:300;line-height:1.65}
 .band-cite{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.24em;color:var(--muted)}
 .brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
-.brand{display:flex;align-items:center;justify-content:center;min-height:88px;border:1px solid var(--line);
-  background:var(--card);font-size:15px;color:var(--body);letter-spacing:.04em;transition:.25s}
-.brand:hover{border-color:var(--line-strong);color:var(--fg)}
+.brand{display:flex;align-items:center;justify-content:center;min-height:88px;border:1px solid rgba(255,255,255,.1);
+  background:#F3F0E9;font-size:15px;color:#1A1712;letter-spacing:.04em;transition:.25s}
+.brand:hover{background:#fff;border-color:rgba(255,255,255,.34);box-shadow:0 10px 30px rgba(0,0,0,.45)}
 .service-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:36px}
 @media(min-width:900px){.service-grid{grid-template-columns:repeat(3,1fr)}}
 .service{border:1px solid var(--line);background:var(--card);padding:28px 24px;display:flex;flex-direction:column}
@@ -158,11 +158,20 @@ body{background:var(--bg);color:var(--fg);font-family:"Inter","Noto Sans SC","Pi
 .card.play:hover h3{color:#fff}
 @media(hover:none){.card.play .thumb::after{opacity:1;transform:none}}
 .brand{flex-direction:column;gap:0;padding:14px 12px}
-.brand img{height:26px;width:auto;max-width:82%;object-fit:contain;opacity:.75;filter:brightness(0) invert(1);transition:.25s}
-.brand:first-child img{height:36px;opacity:.8}
-.brand img[alt="TCL"]{height:30px}
+.brand img{height:26px;width:auto;max-width:82%;object-fit:contain;opacity:.95;transition:.25s}
+.brand img.inv{filter:invert(1)}
+/* 各 logo 光学尺寸微调 */
+.brand img[alt="阿里巴巴"]{height:30px}
+.brand img[alt="中国扶贫基金会"]{height:32px}
+.brand img[alt="南方电网"]{height:28px}
+.brand img[alt="广汽传祺"]{height:28px}
 .brand img[alt="美的"]{height:24px}
-.brand img[alt="广州白云山"]{height:24px}
+.brand img[alt="TCL"]{height:30px}
+.brand img[alt="PICO"]{height:28px}
+.brand img[alt="罗浮宫家居"]{height:30px;filter:brightness(.62) saturate(1.2)}
+.brand img[alt="安吉尔"]{height:28px}
+.brand img[alt="华熙生物"]{height:34px}
+.brand img[alt="谷雨"]{height:30px}
 .brand:nth-child(7) img{height:34px}
 .brand:hover img{opacity:1}
 .brand .bwm{15px}
