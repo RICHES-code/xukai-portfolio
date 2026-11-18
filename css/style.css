@@ -50,7 +50,7 @@ ul{list-style:none}
 .band-inner{width:min(100% - var(--pad)*2,var(--max));margin-inline:auto}
 .band-quote{font-size:clamp(20px,2.6vw,32px);font-weight:300;line-height:1.65}
 .band-cite{display:inline-block;margin-top:16px;font-size:11px;letter-spacing:.24em;color:var(--muted)}
-.brand-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:36px}
+.brand-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
 .brand{display:flex;align-items:center;justify-content:center;min-height:88px;border:1px solid var(--line);
   background:var(--card);font-size:15px;color:var(--body);letter-spacing:.04em;transition:.25s}
 .brand:hover{border-color:var(--line-strong);color:var(--fg)}
@@ -145,3 +145,26 @@ body{background:var(--bg);color:var(--fg);font-family:"Inter","Noto Sans SC","Pi
   .tags{font-size:11px;gap:8px 14px}
   .lede{font-size:19px}
 }
+
+/* ===== v7 作品链接 / 品牌 logo 墙 ===== */
+.card{display:block}
+.card.play .thumb{position:relative}
+.card.play .thumb::after{
+  content:"▶ 观看";position:absolute;right:12px;bottom:12px;padding:6px 13px;border-radius:999px;
+  background:rgba(6,10,14,.74);border:1px solid rgba(232,240,247,.34);color:#fff;
+  font-size:11px;letter-spacing:.1em;opacity:0;transform:translateY(5px);transition:.25s;
+}
+.card.play:hover .thumb::after{opacity:1;transform:none}
+.card.play:hover h3{color:#fff}
+@media(hover:none){.card.play .thumb::after{opacity:1;transform:none}}
+.brand{flex-direction:column;gap:0;padding:14px 12px}
+.brand img{height:28px;width:auto;max-width:84%;object-fit:contain;opacity:.7;filter:brightness(0) invert(1);transition:.25s}
+.brand:first-child img{height:34px}
+.brand:nth-child(7) img{height:34px}
+.brand:hover img{opacity:1}
+.brand .bwm{15px}
+  font-weight:500;letter-spacing:.05em;color:var(--body);opacity:.82;white-space:nowrap
+}
+.brand:hover .bwm{opacity:1;color:var(--fg)}
+@media(max-width:1000px){.brand-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.brand-grid{grid-template-columns:repeat(2,1fr)}.brand img{height:24px}.brand .bwm{font-size:13px}}
