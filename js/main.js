@@ -34,4 +34,40 @@
       });
     });
   });
+
+  /* 页内播放器 */
+  var modal = document.getElementById('player-modal');
+  if (modal) {
+    var frame = document.getElementById('modal-frame');
+    var titleEl = document.getElementById('modal-title');
+    var outEl = document.getElementById('modal-out');
+    var open = function (card) {
+      var bv = card.getAttribute('data-bv');
+      var t = card.querySelector('h3');
+      titleEl.textContent = t ? t.textContent : '播放';
+      outEl.href = 'https://www.bilibili.com/video/' + bv + '/';
+      var img = card.querySelector('.thumb img');
+      frame.style.backgroundImage = img ? 'url(' + img.src + ')' : '';
+      frame.innerHTML = '<iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=' + bv +
+        '&autoplay=1&danmaku=1&high_quality=1&as_wide=1" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen scrolling="no" frameborder="0"></iframe>';
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    };
+    var close = function () {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden','true');
+      frame.innerHTML = '';
+      frame.style.backgroundImage = '';
+      document.body.style.overflow = '';
+    };
+    document.addEventListener('click', function (e) {
+      var card = e.target.closest('a.card.play');
+      if (card) { e.preventDefault(); open(card); return; }
+      if (e.target.closest('[data-close]')) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+  }
 })();
