@@ -159,7 +159,7 @@ body{background:var(--bg);color:var(--fg);font-family:"Inter","Noto Sans SC","Pi
 @media(hover:none){.card.play .thumb::after{opacity:1;transform:none}}
 .brand{flex-direction:column;gap:0;padding:14px 12px}
 .brand img{height:28px;width:auto;max-width:84%;object-fit:contain;opacity:.7;filter:brightness(0) invert(1);transition:.25s}
-.brand:first-child img{height:34px}
+.brand:first-child img{height:42px;opacity:.78}
 .brand:nth-child(7) img{height:34px}
 .brand:hover img{opacity:1}
 .brand .bwm{15px}
