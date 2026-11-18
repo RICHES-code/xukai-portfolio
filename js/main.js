@@ -47,14 +47,26 @@
       titleEl.textContent = t ? t.textContent : '播放';
       outEl.href = 'https://www.bilibili.com/video/' + bv + '/';
       var img = card.querySelector('.thumb img');
-      frame.style.backgroundImage = img ? 'url(' + img.src + ')' : '';
-      frame.innerHTML = '<iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=' + bv +
-        '&autoplay=1&danmaku=1&high_quality=1&as_wide=1" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen scrolling="no" frameborder="0"></iframe>';
+      var poster = img ? img.src : '';
+      frame.style.backgroundImage = poster ? 'url(' + poster + ')' : '';
+      frame.innerHTML = '<video id="modal-video" controls playsinline preload="metadata" poster="' + poster +
+        '" src="assets/videos/' + bv + '.mp4"></video>';
+      var v = document.getElementById('modal-video');
+      if (v) {
+        v.addEventListener('error', function () {
+          frame.innerHTML = '<iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=' + bv +
+            '&autoplay=1&danmaku=1&high_quality=1&as_wide=1" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen scrolling="no" frameborder="0"></iframe>';
+        });
+        var pr = v.play();
+        if (pr && pr.catch) pr.catch(function () {});
+      }
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');
       document.body.style.overflow = 'hidden';
     };
     var close = function () {
+      var mv = document.getElementById('modal-video');
+      if (mv) { try { mv.pause(); } catch (e) {} }
       modal.classList.remove('open');
       modal.setAttribute('aria-hidden','true');
       frame.innerHTML = '';
