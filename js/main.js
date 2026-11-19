@@ -49,13 +49,13 @@
       var img = card.querySelector('.thumb img');
       var poster = img ? img.src : '';
       frame.style.backgroundImage = poster ? 'url(' + poster + ')' : '';
-      frame.innerHTML = '<video id="modal-video" controls playsinline preload="metadata" poster="' + poster +
+      frame.innerHTML = '<video id="modal-video" controls playsinline preload="none" poster="' + poster +
         '" src="assets/videos/' + bv + '.mp4"></video>';
       var v = document.getElementById('modal-video');
       if (v) {
         v.addEventListener('error', function () {
-          frame.innerHTML = '<iframe src="https://player.bilibili.com/player.html?isOutside=true&bvid=' + bv +
-            '&autoplay=1&danmaku=1&high_quality=1&as_wide=1" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen scrolling="no" frameborder="0"></iframe>';
+          frame.innerHTML = '<div class="vid-fail"><img src="' + poster + '" alt=""><a href="https://www.bilibili.com/video/' +
+            bv + '/" target="_blank" rel="noopener">在 B 站观看这条片 ↗</a></div>';
         });
         var pr = v.play();
         if (pr && pr.catch) pr.catch(function () {});
