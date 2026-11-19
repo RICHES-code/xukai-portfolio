@@ -240,11 +240,7 @@ body{background:var(--bg);color:var(--fg);font-family:"Inter","Noto Sans SC","Pi
 .modal-frame.playing .play-btn{display:none}
 
 /* 竖版作品：封面按 4:5 展示 */
-.card.thumb-v .thumb{padding-top:125%}
-.card.thumb-v .thumb::before{content:"";position:absolute;inset:-14px;z-index:0;
-  background-image:inherit;background-size:cover;background-position:center;
-  filter:blur(16px) brightness(.52) saturate(.9);transform:scale(1.05)}
-.card.thumb-v .thumb img{object-fit:contain;z-index:1}
+
 @media(min-width:900px){.card.thumb-v .card h3{}}
 
 /* 横竖混排：仍按行排序（保持作品顺序），竖版卡更高 */
