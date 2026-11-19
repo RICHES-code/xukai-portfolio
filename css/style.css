@@ -33,7 +33,7 @@ ul{list-style:none}
   padding:9px 16px;border-radius:999px;cursor:pointer;font-family:inherit;transition:.22s}
 .filter:hover{color:var(--fg);border-color:var(--line-strong)}
 .filter.active{background:var(--fg);border-color:var(--fg);color:var(--bg)}
-.grid{display:grid;grid-template-columns:1fr;gap:clamp(14px,2vw,24px);margin-top:26px}
+.grid{display:grid;grid-template-columns:1fr;gap:clamp(14px,2vw,24px);margin-top:26px;align-items:start}
 @media(min-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
 .card{overflow:hidden}
 .card .thumb{position:relative;overflow:hidden;padding-top:62.5%;background:var(--card)}
@@ -238,3 +238,17 @@ body{background:var(--bg);color:var(--fg);font-family:"Inter","Noto Sans SC","Pi
   font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.5)}
 .modal-frame .play-btn:hover{background:#fff;transform:translate(-50%,-50%) scale(1.04)}
 .modal-frame.playing .play-btn{display:none}
+
+/* 竖版作品：封面按 4:5 展示 */
+.card.thumb-v .thumb{padding-top:125%}
+@media(min-width:900px){.card.thumb-v .card h3{}}
+
+/* 横竖混排：桌面用双列瀑布流，避免行高被竖版卡片撑出空洞 */
+@media(min-width:900px){
+  .grid{display:block;columns:2;column-gap:clamp(14px,2vw,24px)}
+  .grid .card{break-inside:avoid;-webkit-column-break-inside:avoid;margin-bottom:clamp(20px,2.4vw,30px)}
+}
+@media(max-width:899px){
+  .grid{display:block}
+  .grid .card{margin-bottom:18px}
+}
