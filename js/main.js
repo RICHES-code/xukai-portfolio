@@ -46,8 +46,17 @@
       var t = card.querySelector('h3');
       titleEl.textContent = t ? t.textContent : '播放';
       outEl.href = 'https://www.bilibili.com/video/' + bv + '/';
+      frame.style.aspectRatio = '';
+      frame.style.width = '';
+      frame.style.maxHeight = '';
+      var isPortrait = card.classList.contains('thumb-v');
+      if (isPortrait) {
+        frame.style.aspectRatio = '9 / 16';
+        frame.style.width = 'auto';
+        frame.style.maxHeight = '72dvh';
+      }
       var img = card.querySelector('.thumb img');
-      var poster = img ? img.src : '';
+      var poster = card.getAttribute('data-poster') || (img ? img.src : '');
       frame.style.backgroundImage = poster ? 'url(' + poster + ')' : '';
       frame.className = 'modal-frame';
       frame.innerHTML = '<video id="modal-video" controls playsinline webkit-playsinline x5-playsinline ' +
