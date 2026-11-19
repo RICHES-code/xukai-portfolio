@@ -1,12 +1,35 @@
 (function(){
+  /* 瞬时滚动（微信/旧内核里 smooth 可能失效） */
+  function jumpTo(y) {
+    var html = document.documentElement, prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, y);
+    if (y === 0) { html.scrollTop = 0; if (document.body) document.body.scrollTop = 0; }
+    html.style.scrollBehavior = prev;
+  }
+  window.__jumpTo = jumpTo;
   /* 刷新后回到顶部 */
   if ('scrollRestoration' in history) { try { history.scrollRestoration = 'manual'; } catch (e) {} }
   window.addEventListener('load', function () {
-    var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
-    if (nav.type === 'reload' || !location.hash) { window.scrollTo(0, 0); }
+    jumpTo(0);
+    if (location.hash) {
+      try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {}
+    }
   });
   window.addEventListener('pageshow', function (e) {
-    if (e.persisted) { window.scrollTo(0, 0); }
+    if (e.persisted) { jumpTo(0); }
+  });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var id = a.getAttribute('href');
+    if (id === '#' || id === '#top') { e.preventDefault(); jumpTo(0); return; }
+    var el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    var y = el.getBoundingClientRect().top + window.pageYOffset - (id === '#home' ? 0 : 18);
+    jumpTo(Math.max(0, y));
+    try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {}
   });
 })();
 
