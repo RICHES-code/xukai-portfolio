@@ -23,9 +23,10 @@
 html{-webkit-text-size-adjust:100%}
 body{
   background:var(--bg);color:var(--fg);
-  font-family:"Inter","HarmonyOS Sans SC","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
-  font-size:15px;line-height:1.65;letter-spacing:.005em;
+  font-family:-apple-system,"PingFang SC","HarmonyOS Sans SC","Noto Sans SC","Source Han Sans SC","Microsoft YaHei",sans-serif;
+  font-size:16px;line-height:1.75;letter-spacing:.01em;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;
+  -webkit-tap-highlight-color:transparent;scrollbar-gutter:stable;
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -61,7 +62,7 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 }
 .logo{display:flex;align-items:baseline;gap:10px;white-space:nowrap}
 .logo b{font-size:15px;font-weight:600;letter-spacing:.06em}
-.logo span{font-size:11.5px;color:var(--muted);letter-spacing:.14em}
+.logo span{font-size:12px;color:var(--muted);letter-spacing:.12em}
 .links{display:flex;align-items:center;gap:clamp(14px,1.9vw,30px);font-size:13px;color:var(--muted)}
 .links a{position:relative;padding:6px 0;letter-spacing:.03em;transition:color .25s var(--ease)}
 .links a:hover{color:var(--fg)}
@@ -100,16 +101,16 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 .hero .lede{
   margin-top:clamp(18px,2.6vw,30px);
   font-size:clamp(21px,2.9vw,34px);font-weight:300;line-height:1.32;
-  letter-spacing:-.005em;color:#DCE6EE;max-width:16em;
+  letter-spacing:-.005em;color:#E4EDF4;max-width:16em;
 }
 .hero .lede em{font-style:normal;font-weight:600;color:#F1DFBE}
 .hero .roles{
   margin-top:clamp(20px,2.4vw,30px);padding-top:18px;border-top:1px solid var(--line);
-  font-size:13.5px;letter-spacing:.04em;color:#C6D2DC;
+  font-size:14px;letter-spacing:.06em;color:#C9D5DF;
 }
 .hero .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
 .hero .tags li{
-  font-size:11.5px;letter-spacing:.1em;color:#AEBDCA;
+  font-size:12px;letter-spacing:.09em;color:#AEBDCA;
   border:1px solid var(--line);border-radius:2px;padding:5px 11px;
 }
 .cta{
@@ -129,8 +130,9 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 .about-h{font-size:clamp(24px,2.7vw,35px);line-height:1.34;letter-spacing:-.012em}
 .h2.big{font-size:clamp(24px,2.9vw,36px);color:#E9F0F6}
 .lead{
-  margin-top:18px;max-width:64ch;
-  font-size:clamp(14.5px,1.45vw,16.5px);line-height:1.85;color:var(--body);font-weight:300;
+  margin-top:20px;max-width:58ch;
+  font-size:clamp(15.5px,1.5vw,17px);line-height:1.9;color:var(--body);font-weight:400;
+  text-wrap:pretty;
 }
 
 /* ---------------- 人物介绍 ---------------- */
@@ -146,8 +148,8 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 16%;filter:grayscale(.12) brightness(.82) contrast(1.05)}
 .facts{margin-top:26px;border-top:1px solid var(--line)}
 .facts li{display:flex;gap:18px;align-items:baseline;padding:13px 0;border-bottom:1px solid var(--line)}
-.facts b{font-size:13px;letter-spacing:.03em;min-width:108px;color:var(--fg);font-weight:600}
-.facts span{font-size:13px;color:var(--muted);font-weight:300}
+.facts b{font-size:14px;letter-spacing:.03em;flex:0 0 118px;color:var(--fg);font-weight:600}
+.facts span{font-size:14px;color:#9AACBA;font-weight:400}
 
 .orgs{margin-top:clamp(40px,5vw,64px)}
 .orgs-label{font-size:11px;letter-spacing:.2em;color:var(--muted);margin-bottom:16px}
@@ -183,9 +185,9 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 }
 .card:hover .thumb img{transform:scale(1.035);filter:saturate(1.02) brightness(1.02)}
 .card.thumb-v .thumb{padding-top:62.5%}
-.kind{display:block;margin-top:18px;font-size:10.5px;letter-spacing:.18em;color:var(--accent);opacity:.72;text-transform:uppercase}
-.card h3{font-size:17.5px;font-weight:600;letter-spacing:-.005em;margin-top:8px;line-height:1.4}
-.card p{font-size:13px;color:var(--muted);font-weight:300;margin-top:8px;line-height:1.65}
+.kind{display:block;margin-top:18px;font-size:11px;letter-spacing:.2em;font-weight:500;color:var(--accent);opacity:.72;text-transform:uppercase}
+.card h3{font-size:18.5px;font-weight:600;letter-spacing:-.008em;margin-top:8px;line-height:1.45}
+.card p{font-size:14px;color:#9AACBA;font-weight:400;margin-top:8px;line-height:1.7;text-wrap:pretty}
 .card.play .thumb::after{
   content:"";position:absolute;right:14px;bottom:14px;width:34px;height:34px;border-radius:50%;
   background:rgba(6,10,14,.66) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 12'%3E%3Cpath fill='%23F4F7FA' d='M0 0l10 6-10 6z'/%3E%3C/svg%3E") center/9px 11px no-repeat;
@@ -198,7 +200,7 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 /* ---------------- 金句 ---------------- */
 .band{padding:clamp(64px,8vw,110px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .band-inner{width:min(100% - var(--pad)*2,var(--max));margin-inline:auto}
-.band-quote{font-size:clamp(22px,2.7vw,36px);font-weight:300;line-height:1.55;letter-spacing:-.01em;color:#EDF3F8;max-width:22em}
+.band-quote{font-size:clamp(23px,2.8vw,38px);font-weight:300;line-height:1.62;letter-spacing:-.01em;color:#EDF3F8;max-width:22em}
 .band-quote::before{content:"“";display:block;font-size:44px;line-height:.4;color:var(--accent);opacity:.7;margin-bottom:18px}
 .band-cite{display:block;text-align:right;margin-top:22px;font-size:11px;letter-spacing:.2em;color:var(--muted)}
 
@@ -226,15 +228,15 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 .brand img[alt="谷雨"]{height:28px}
 
 /* ---------------- 业务类型 ---------------- */
-.service-grid{display:grid;grid-template-columns:1fr;gap:1px;margin-top:clamp(28px,3.4vw,40px);background:var(--line)}
+.service-grid{display:grid;grid-template-columns:1fr;gap:1px;margin-top:clamp(26px,3vw,34px);background:var(--line)}
 @media(min-width:900px){.service-grid{grid-template-columns:repeat(3,1fr)}}
-.service{background:var(--bg-alt);padding:clamp(26px,3vw,36px) clamp(22px,2.4vw,30px)}
-.service .no{display:block;font-size:11px;letter-spacing:.18em;color:var(--accent);opacity:.8}
-.service h3{font-size:19px;font-weight:600;line-height:1.4;margin:14px 0 10px;letter-spacing:-.005em}
-.service p{font-size:13.5px;line-height:1.8;color:var(--muted);font-weight:300}
+.service{background:var(--bg-alt);padding:clamp(26px,3vw,34px) clamp(22px,2.4vw,30px)}
+.service h3::before{content:"";display:block;width:28px;height:1px;background:var(--accent);opacity:.65;margin-bottom:18px}
+.service h3{font-size:20px;font-weight:600;line-height:1.4;margin:0 0 12px;letter-spacing:-.005em}
+.service p{font-size:14px;line-height:1.85;color:#9AACBA;font-weight:400;text-wrap:pretty}
 
 .pipeline{margin-top:clamp(44px,5vw,64px)}
-.pipeline h3{font-size:18px;font-weight:600;letter-spacing:-.005em}
+.pipeline h3{font-size:19px;font-weight:600;letter-spacing:-.005em}
 .pipeline .lead{margin-top:14px;line-height:1.9}
 .tools{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:26px}
 @media(max-width:700px){.tools{grid-template-columns:repeat(2,1fr)}}
@@ -247,22 +249,22 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 .tool img{height:26px;width:auto;max-width:76px;object-fit:contain;filter:brightness(0) invert(1);opacity:.6;transition:opacity .3s var(--ease)}
 .tool:hover img{opacity:.95}
 .tool b{font-size:14px;font-weight:600;letter-spacing:.04em;color:var(--body);opacity:.8}
-.tool span{font-size:10.5px;letter-spacing:.1em;color:var(--muted)}
+.tool span{font-size:11px;letter-spacing:.08em;color:var(--muted)}
 
 /* ---------------- 联系方式 ---------------- */
-.contact .quote-h{font-size:clamp(27px,3.7vw,46px);line-height:1.3;letter-spacing:-.02em;max-width:24em}
+.contact .quote-h{font-size:clamp(27px,3.6vw,44px);line-height:1.34;letter-spacing:-.02em;max-width:24em}
 .contact .quote-h em{font-style:normal;color:#F1DFBE}
 .contact-grid{display:grid;grid-template-columns:1fr;gap:clamp(30px,4vw,64px);margin-top:clamp(34px,4vw,48px);align-items:center}
 @media(min-width:860px){.contact-grid{grid-template-columns:1fr auto}}
 .contact-item{display:flex;gap:20px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line)}
 .contact-item:first-child{border-top:1px solid var(--line)}
-.contact-item span{font-size:11.5px;letter-spacing:.16em;color:#A9B9C6;min-width:64px}
-.contact-item b{font-size:clamp(16px,1.8vw,20px);font-weight:400;letter-spacing:.01em}
+.contact-item span{font-size:12px;letter-spacing:.14em;color:#A9B9C6;min-width:64px}
+.contact-item b{font-size:clamp(16px,1.8vw,20px);font-weight:400;letter-spacing:.02em;font-variant-numeric:tabular-nums}
 .contact-item a{transition:color .25s var(--ease)}
 .contact-item a:hover{color:var(--accent)}
 .qr{width:100%;text-align:center}
 .qr img{width:clamp(168px,18vw,204px);height:auto;margin-inline:auto;padding:9px;background:#fff;border-radius:2px}
-.qr span{display:block;margin-top:14px;font-size:11px;letter-spacing:.18em;color:var(--muted)}
+.qr span{display:block;margin-top:14px;font-size:12px;letter-spacing:.18em;color:var(--muted)}
 
 /* ---------------- 页脚 ---------------- */
 .footer{border-top:1px solid var(--line);padding:28px 0 34px}
@@ -270,7 +272,7 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 .foot-brand{display:flex;align-items:baseline;gap:10px}
 .foot-brand b{font-size:14px;font-weight:600;letter-spacing:.06em}
 .foot-brand span{font-size:12px;color:var(--muted);letter-spacing:.08em}
-.foot-links{display:flex;flex-wrap:wrap;align-items:center;gap:18px;font-size:12px;color:var(--muted);letter-spacing:.06em}
+.foot-links{display:flex;flex-wrap:wrap;align-items:center;gap:18px;font-variant-numeric:tabular-nums;font-size:12.5px;color:var(--muted);letter-spacing:.06em}
 .foot-links a{transition:color .25s var(--ease)}
 .foot-links a:hover{color:var(--accent)}
 
@@ -296,7 +298,7 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 .modal-close:hover{border-color:var(--accent);color:var(--accent)}
 .modal-frame{position:relative;width:100%;aspect-ratio:16/9;margin-inline:auto;max-height:calc(100dvh - 210px);background:#000 center/cover no-repeat}
 .modal-frame iframe,.modal-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000;object-fit:contain}
-.modal-tip{margin:0;padding:11px 20px;font-size:11.5px;letter-spacing:.03em;color:var(--muted)}
+.modal-tip{margin:0;padding:11px 20px;font-size:12px;letter-spacing:.03em;color:var(--muted)}
 .modal-frame .play-btn{
   position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;
   width:72px;height:72px;border-radius:50%;border:0;cursor:pointer;
@@ -321,7 +323,7 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
   .nav{padding:15px var(--pad);gap:12px}
   .logo{gap:8px;max-width:64%;overflow:hidden}
   .logo b{font-size:14px}
-  .logo span{font-size:10.5px;letter-spacing:.1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .logo span{font-size:11px;letter-spacing:.1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .links{
     position:fixed;top:0;left:0;right:0;z-index:-1;flex-direction:column;align-items:stretch;gap:0;
     display:none;padding:74px 0 18px;background:rgba(7,11,17,.98);border-bottom:1px solid var(--line);
@@ -343,7 +345,7 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
   .hero .tags{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:none}
   .hero .tags li{text-align:center;padding:5px 4px;font-size:11px;letter-spacing:.06em}
   .hero h1{font-size:clamp(58px,17vw,92px)}
-  .hero .lede{font-size:20px;line-height:1.5}
+  .hero .lede{font-size:21px;line-height:1.52}
   .hero .roles{font-size:12px;line-height:1.9}
   .hero .tags li{font-size:11px;padding:4px 9px}
   .cta{padding:12px 20px 12px 17px;font-size:13px}
@@ -370,9 +372,10 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
   .modal-frame{max-height:62vh}
 }
 @media(max-width:430px){
-  .hero .roles{font-size:11.5px}
+  .hero .roles{font-size:12px}
   .hero .tags{font-size:11px;gap:6px}
-  .card h3{font-size:16.5px}
+  .card h3{font-size:17.5px}
+  .card p{font-size:13.5px}
 }
 @media(prefers-reduced-motion:reduce){
   .hero-media img,.hero-inner{animation:none}
