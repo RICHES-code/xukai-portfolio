@@ -27,7 +27,9 @@
     var el = document.querySelector(id);
     if (!el) return;
     e.preventDefault();
-    var y = el.getBoundingClientRect().top + window.pageYOffset - (id === '#home' ? 0 : 18);
+    var navEl = document.getElementById('nav');
+    var off = (id === '#home') ? 0 : Math.max(24, (navEl ? navEl.offsetHeight : 64) - 10);
+    var y = el.getBoundingClientRect().top + window.pageYOffset - off;
     jumpTo(Math.max(0, y));
     try { history.replaceState(null, '', location.pathname + location.search); } catch (err) {}
   });
