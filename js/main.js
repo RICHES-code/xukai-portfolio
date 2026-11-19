@@ -1,4 +1,16 @@
 (function(){
+  /* 刷新后回到顶部 */
+  if ('scrollRestoration' in history) { try { history.scrollRestoration = 'manual'; } catch (e) {} }
+  window.addEventListener('load', function () {
+    var nav = (performance.getEntriesByType && performance.getEntriesByType('navigation')[0]) || {};
+    if (nav.type === 'reload' || !location.hash) { window.scrollTo(0, 0); }
+  });
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) { window.scrollTo(0, 0); }
+  });
+})();
+
+(function(){
   var nav=document.getElementById('nav');
   var links=[].slice.call(document.querySelectorAll('.links a'));
   var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))});
