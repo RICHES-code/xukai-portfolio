@@ -385,3 +385,14 @@ html{scrollbar-color:rgba(233,240,247,.22) transparent;scrollbar-width:thin}
 @media(prefers-reduced-motion:reduce){
   .hero-media img,.hero-inner{animation:none}
 }
+
+/* 极短视口（浏览器缩放/小窗/横屏手机）：整体压缩，绝不把文字挤出首屏 */
+@media(max-height:520px){
+  .hero{padding:64px var(--pad) 24px}
+  .hero h1{font-size:clamp(38px,min(8vw,11vh),80px)}
+  .hero .lede{font-size:clamp(16px,min(2.2vw,2.8vh),22px);margin-top:12px}
+  .hero .roles{margin-top:10px;padding-top:10px;font-size:12px}
+  .hero .tags{margin-top:10px;gap:6px}
+  .hero .tags li{font-size:11px;padding:3px 8px}
+  .cta{margin-top:14px;padding:10px 18px;font-size:12.5px}
+}
