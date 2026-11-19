@@ -49,16 +49,32 @@
       var img = card.querySelector('.thumb img');
       var poster = img ? img.src : '';
       frame.style.backgroundImage = poster ? 'url(' + poster + ')' : '';
-      frame.innerHTML = '<video id="modal-video" controls playsinline preload="none" poster="' + poster +
-        '" src="assets/videos/' + bv + '.mp4"></video>';
+      frame.className = 'modal-frame';
+      frame.innerHTML = '<video id="modal-video" controls playsinline webkit-playsinline x5-playsinline ' +
+        'x5-video-player-type="h5" x5-video-player-fullscreen="false" preload="none" poster="' + poster +
+        '" src="assets/videos/' + bv + '.mp4"></video>' +
+        '<button class="play-btn" aria-label="播放">▶</button>';
       var v = document.getElementById('modal-video');
       if (v) {
         v.addEventListener('error', function () {
           frame.innerHTML = '<div class="vid-fail"><img src="' + poster + '" alt=""><a href="https://www.bilibili.com/video/' +
             bv + '/" target="_blank" rel="noopener">在 B 站观看这条片 ↗</a></div>';
         });
-        var pr = v.play();
-        if (pr && pr.catch) pr.catch(function () {});
+        v.addEventListener('loadedmetadata', function () {
+          if (v.videoHeight > v.videoWidth) {
+            frame.style.aspectRatio = v.videoWidth + '/' + v.videoHeight;
+            frame.style.maxHeight = '72dvh';
+            frame.style.width = 'auto';
+          }
+        });
+        var pb = frame.querySelector('.play-btn');
+        var start = function () {
+          frame.classList.add('playing');
+          var pr = v.play();
+          if (pr && pr.catch) pr.catch(function () { frame.classList.remove('playing'); });
+        };
+        if (pb) pb.addEventListener('click', start);
+        start();
       }
       modal.classList.add('open');
       modal.setAttribute('aria-hidden','false');
